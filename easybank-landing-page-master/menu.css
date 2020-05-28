@@ -1,0 +1,108 @@
+:root{
+    --Dark-Blue: #2d314d;
+}
+
+.flex_header{
+    position: relative;
+    align-items: center;
+}
+.inputbtn{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    border: solid;
+    z-index: 10;
+    opacity: 0;
+    
+}
+.hamburger{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px ;
+    height: 50px;
+    margin-top: 5px;
+    z-index: 8;
+    padding: 1rem;
+}
+.hamburger > div{
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: #2d314d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;z-index: 87;
+}
+
+.hamburger > div::before,
+.hamburger > div::after {
+  content: '';
+  position: absolute;
+  z-index: 9;
+  top: -10px;
+  width: 100%;
+  height: 2px;
+  background: inherit;
+}
+
+.hamburger > div::after {
+    top: 10px;
+}
+.inputbtn:checked + .hamburger > div{
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+.inputbtn:checked + .hamburger > div:before,
+.inputbtn:checked + .hamburger > div:after {
+  top: 0;
+  transform: rotate(90deg);
+}
+.inputbtn:checked:hover + .hamburger > div {
+    transform: rotate(225deg);
+}
+
+@media(max-width:950px){
+    .tricky {
+        display: none;
+    }
+    .inputbtn:checked ~ .tricky {
+        display: block;
+    }
+    
+    
+    .header_list{
+        position: absolute;
+        top: 90px;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        width: 100%;
+        color: #2d314d;
+        border-radius: 10px;
+        align-items: center;
+        transition-duration: .5s;
+        transition-timing-function: ease-in-out;
+        scale: 0;
+        padding-bottom: 1rem;
+        box-shadow: 0px 54px 300px 136px rgba(0,0,0,0.8);
+        
+    }
+    .header ul > li{
+        color: var(--Dark-Blue) !important; 
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+    #check:checked ~ .tricky > ul{
+        scale: 1;
+    }
+    
+    
+}
+
+
